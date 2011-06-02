@@ -1,0 +1,24 @@
+{application, collector,
+ [
+  {description, "Collector Monitoring Daemon"},
+  {vsn, "1"},
+  {modules, [
+      collector_supervisor,
+      collector_dispatcher,
+      
+      collector_value_handler,
+      collector_value_presence,
+      collector_presence_fsm,
+      
+      collector_collectd_server,
+      collector_collectd_parser
+    ]},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  % {included_applications, [bert]},
+  {mod, { collector_app, []}},
+  {env, []}
+ ]}.

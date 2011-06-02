@@ -1,0 +1,10 @@
+[{collector, [
+      {adapters, [
+          {collectd, 10000}
+        ]},
+      {handlers, [
+          % dummy,
+          {presence, 4000}
+        ]}
+    ]}
+].

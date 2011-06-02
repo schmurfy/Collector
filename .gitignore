@@ -1,0 +1,7 @@
+*.beam
+rel/collector/
+rel/files/
+erl_crash.dump
+deps/
+ebin/*.app
+collector.config
