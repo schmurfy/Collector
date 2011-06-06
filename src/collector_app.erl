@@ -11,6 +11,7 @@
 
 start(_StartType, _StartArgs) ->
   io:format("[~w] Starting Collector.~n", [self()]),
+  % trace(collector_tcp_handler),
   {ok, Pid} = collector_supervisor:start_link(_StartArgs),
   {ok, A} = application:get_env(adapters),
   start_adapters( A ),
@@ -26,12 +27,14 @@ start_adapters([H|R]) ->
 
 start_handlers([]) -> ok;
 start_handlers([H|R]) ->
-  collector_dispatcher:add_handler(alias, H).
+  collector_dispatcher:add_handler(alias, H),
+  start_handlers(R).
 
 stop(_State) ->
     ok.
 
 trace(M) ->
+  io:format("++ Trace enabled for ~w ++~n", [M]),
   dbg:start(),
   dbg:tracer(),
   dbg:tpl(M, '_', []),

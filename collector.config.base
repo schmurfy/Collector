@@ -4,6 +4,7 @@
         ]},
       {handlers, [
           % dummy,
+          {tcp, 12000},
           {presence, 4000}
         ]}
     ]}
