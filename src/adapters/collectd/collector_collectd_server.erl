@@ -62,14 +62,16 @@ translate_plugin(#data{plugin = P, plugin_instance = nil}, Out = #value_event{})
   Out#value_event{plugin = P};
 
 translate_plugin(#data{plugin = P, plugin_instance = Pi}, Out = #value_event{}) ->
-  Out#value_event{plugin = [P, Pi]}.
+  NewPlugin = list_to_binary( lists:concat( [binary_to_list(P), '/', binary_to_list(Pi)] ) ),
+  Out#value_event{plugin = NewPlugin}.
 
 
 translate_type(#data{type = T, type_instance = nil}, Out = #value_event{}) ->
   Out#value_event{type = T};
 
 translate_type(#data{type = T, type_instance = Ti}, Out = #value_event{}) ->
-  Out#value_event{type = [T, Ti]}.
+  NewType = list_to_binary( lists:concat( [binary_to_list(T), '/', binary_to_list(Ti)] ) ),
+  Out#value_event{type = NewType}.
 
 
 
