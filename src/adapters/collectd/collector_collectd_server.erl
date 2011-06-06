@@ -11,12 +11,11 @@
 -export ([decode_data/1]).
 
 start_link(Port) ->
-  io:format("collectd_server:start_link(~w)~n", [Port]),
   gen_server:start_link(?MODULE, [Port], []).
   
 
 init([Port]) ->
-  io:format("Collectd Server started on port ~w~n", [Port]),
+  io:format("[~w] Collectd Server started on port ~w~n", [self(), Port]),
   {ok, _Socket} = gen_udp:open(Port, [binary]),
   {ok, nostate}.
 

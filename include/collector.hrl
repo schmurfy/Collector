@@ -35,6 +35,7 @@
   message         = nil
 }).
 
+-define(rec_info(T,R),lists:zip(record_info(fields,T),tl(tuple_to_list(R)))). 
 
 % presence event handler
 -define(PRESENCE_DELAY, 20000).

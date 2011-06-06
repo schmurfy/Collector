@@ -8,8 +8,6 @@
 
 -include("collector.hrl").
 
--define(rec_info(T,R),lists:zip(record_info(fields,T),tl(tuple_to_list(R)))). 
-
 unpack(Binary) ->
   unpack(Binary, []).
 
