@@ -10,6 +10,11 @@
       collector_value_presence,
       collector_presence_fsm,
       
+      collector_tcp_handler,
+      collector_tcp_handler_proc,
+      collector_tcp_handler_server_srv,
+      collector_tcp_handler_sup,
+      
       collector_collectd_server,
       collector_collectd_parser
     ]},
