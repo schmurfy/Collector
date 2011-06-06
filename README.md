@@ -20,7 +20,7 @@ These may change but currently they are:
 
 - [Done] being able to receive packets from a collectd deamon
 - [Done] all the event handlers can be loaded or unloaded as wanted via the config file
-- send events to other applications to handle them.
+- [Done] send events to other applications to handle them.
 - write and event handler which will write the values in rrd files.
 - zeromq as transport module (I tried erlzmq2 but it just feels like it will be a major
     pain in the ass to deploy on production system with its recompilation of zeromq pulled
@@ -28,11 +28,11 @@ These may change but currently they are:
 
 Handlers:
 
-- presence module: when values are received for an host the "active" timer is reset,
+- [Done] presence module: when values are received for an host the "active" timer is reset,
     if the timer reach 0 the machine is considered missing and an event is fired. [Done]
   
-- tcp module: allow clients to connect and forward the events to all connected, maybe add
-    a simple subscription system too.
+- [Done] tcp module: allow clients to connect and forward the events to all connected (maybe add
+    a simple subscription system later).
 
 - rrd module: save values in rrd files, that is borderline with my goals but I don't like
     the idea of requiring an external application connected to collector just to save
